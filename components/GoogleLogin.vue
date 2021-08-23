@@ -1,5 +1,5 @@
 
-<script lang="ts" setup>
+<script setup>
 import { onMounted } from "@vue/runtime-core";
 import { GoogleService } from "social-login-service";
 
