@@ -1,0 +1,25 @@
+{
+  "name": "vue-social-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ex-platform/vue-social-login.git"
+  },
+  "keywords": [
+    "social",
+    "kakao",
+    "naver",
+    "facebook",
+    "google",
+    "login"
+  ],
+  "author": "ex-platform",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ex-platform/vue-social-login/issues"
+  },
+  "homepage": "https://github.com/ex-platform/vue-social-login#readme"
+}
