@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {},
+  "devDependencies": {
+    "social-login-service": "github:ex-platform/social-login-service",
+    "vue": "^3.2.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ex-platform/vue-social-login.git"
