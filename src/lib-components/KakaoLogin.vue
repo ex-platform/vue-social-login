@@ -1,10 +1,10 @@
 
 <script setup>
 import { onMounted } from "@vue/runtime-core";
-import { GoogleService } from "social-login-service";
+import { KakaoService } from "social-login-service";
 
 const props = defineProps({
-  clientId: {
+  apiKey: {
     type: String,
     required: true,
   },
@@ -18,23 +18,20 @@ const props = defineProps({
   },
 });
 
-const googleLoginButtonId = 'google-login-button';
-
-const googleLoginService = new GoogleService({
-  clientId: props.clientId,
-  elementId: googleLoginButtonId,
+const kakaoService = new KakaoService({
+  apiKey: props.apiKey,
   success: props.success,
   fail: props.fail,
 });
 
 onMounted(() => {
-  googleLoginService.initiate();
+  kakaoService.initiate();
 });
 
 </script>
 
 <template>
-  <button :id="googleLoginButtonId">
-    <img src="../assets/img_googleLogin.png" alt="구글 로그인">
+  <button @click="kakaoService.login()">
+    <img :src="require('../assets/img_kakaoLogin.png')" alt="카카오 로그인">
   </button>
 </template>
