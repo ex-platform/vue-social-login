@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import vue from 'rollup-plugin-vue';
+import image from '@rollup/plugin-image';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -12,10 +13,10 @@ import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
-const esbrowserslist = fs.readFileSync('./.browserslistrc')
-  .toString()
-  .split('\n')
-  .filter((entry) => entry && entry.substring(0, 2) !== 'ie');
+// const esbrowserslist = fs.readFileSync('./.browserslistrc')
+//   .toString()
+//   .split('\n')
+//   .filter((entry) => entry && entry.substring(0, 2) !== 'ie');
 
 // Extract babel preset-env config, to combine with esbrowserslist
 const babelPresetEnvConfig = require('../babel.config')
@@ -97,7 +98,8 @@ if (!argv.format || argv.format === 'es') {
     plugins: [
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
+      vue(),
+      image(),
       ...baseConfig.plugins.postVue,
       babel({
         ...baseConfig.plugins.babel,
@@ -106,7 +108,7 @@ if (!argv.format || argv.format === 'es') {
             '@babel/preset-env',
             {
               ...babelPresetEnvConfig,
-              targets: esbrowserslist,
+              // targets: esbrowserslist,
             },
           ],
         ],
@@ -131,7 +133,8 @@ if (!argv.format || argv.format === 'cjs') {
     plugins: [
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
+      vue(),
+      image(),
       ...baseConfig.plugins.postVue,
       babel(baseConfig.plugins.babel),
     ],
@@ -154,7 +157,8 @@ if (!argv.format || argv.format === 'iife') {
     plugins: [
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
+      vue(),
+      image(),
       ...baseConfig.plugins.postVue,
       babel(baseConfig.plugins.babel),
       terser({

@@ -1,7 +1,7 @@
 {
-  "name": "vue-social-login",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@ex-platform/vue-social-login",
+  "version": "1.0.1",
+  "description": "vue social login",
   "main": "dist/vue-social-login.ssr.js",
   "browser": "dist/vue-social-login.esm.js",
   "module": "dist/vue-social-login.esm.js",
@@ -47,6 +47,20 @@
     "node": ">=12"
   },
   "dependencies": {
+    "@rollup/plugin-image": "^2.1.1",
     "social-login-service": "git+https://github.com/ex-platform/social-login-service.git"
-  }
+  },
+  "keywords": [
+    "social",
+    "login",
+    "kakao",
+    "naver"
+  ],
+  "homepage": "https://github.com/ex-platform/vue-social-login",
+  "author": "ex-platform <impro0501@naver.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ex-platform/vue-social-login"
+  },
+  "license": "MIT"
 }
