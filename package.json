@@ -1,14 +1,13 @@
 {
   "name": "@ex-platform/vue-social-login",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vue social login",
   "main": "dist/vue-social-login.ssr.js",
   "browser": "dist/vue-social-login.esm.js",
   "module": "dist/vue-social-login.esm.js",
   "unpkg": "dist/vue-social-login.min.js",
   "files": [
-    "dist/*",
-    "src/**/*.vue"
+    "dist/*"
   ],
   "sideEffects": false,
   "scripts": {
