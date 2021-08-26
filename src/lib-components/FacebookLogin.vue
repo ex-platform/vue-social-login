@@ -43,7 +43,7 @@ export default {
 }
 
 .fb_iframe_widget {
-	/* background-image: url(another-button.png); */
-	background-repeat: no-repeat;
+  /* background-image: url(another-button.png); */
+  background-repeat: no-repeat; 
 }
 </style>

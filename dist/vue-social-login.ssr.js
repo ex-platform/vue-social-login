@@ -57,36 +57,33 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }function naverService() {
     let naverLogin;
-    const initiate = (clientId, callbackUrl) => {
+    const initiate = (clientId, callbackUrl, isPopup, buttonStyles) => {
         naverLogin = new window.naver.LoginWithNaverId({
             clientId,
             callbackUrl,
-            isPopup: false /* 팝업을 통한 연동처리 여부 */,
+            isPopup,
             loginButton: {
-                color: 'green',
-                type: 3,
-                height: 120,
+                color: buttonStyles.buttonColor,
+                type: buttonStyles.buttonType,
+                height: buttonStyles.buttonHeight,
             } /* 로그인 버튼의 타입을 지정 */,
         });
         setNaver();
     };
-    const initNaver = (clientId, callbackUrl) => {
+    const initNaver = (clientId, callbackUrl, isPopup, success, fail, buttonStyles) => {
         const scriptId = 'naver_login';
         const isExist = !!document.getElementById(scriptId);
         if (!isExist) {
             const script = document.createElement('script');
             script.src = 'https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js';
             script.onload = () => {
-                initiate(clientId, callbackUrl);
-                console.log(`naverLogin`, naverLogin);
+                initiate(clientId, callbackUrl, isPopup, buttonStyles);
                 naverLogin.getLoginStatus((status) => {
                     if (status) {
-                        const email = naverLogin.user.email;
-                        const name = naverLogin.user.name;
-                        console.log(email, name);
+                        success(naverLogin);
                     }
                     else {
-                        console.log("AccessToken이 올바르지 않습니다.");
+                        fail();
                     }
                 });
             };
@@ -343,15 +340,44 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
     callbackUrl: {
       type: String,
       required: true
+    },
+    success: {
+      type: Function,
+      required: true
+    },
+    fail: {
+      type: Function,
+      required: true
+    },
+    isPopup: {
+      type: Boolean,
+      "default": false
+    },
+    buttonColor: {
+      type: String,
+      "default": 'green'
+    },
+    buttonType: {
+      type: Number,
+      "default": 3
+    },
+    buttonHeight: {
+      type: Number,
+      "default": 60
     }
   },
   data: function data() {
     return {
-      naverService: naverService()
+      naverService: naverService(),
+      buttonStyles: {
+        buttonColor: this.buttonColor,
+        buttonType: this.buttonType,
+        buttonHeight: this.buttonHeight
+      }
     };
   },
   mounted: function mounted() {
-    this.naverService.initNaver(this.clientId, this.callbackUrl);
+    this.naverService.initNaver(this.clientId, this.callbackUrl, this.isPopup, this.success, this.fail, this.buttonStyles);
   },
   methods: {
     onClickNaver: function onClickNaver() {
@@ -431,7 +457,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z = "\n.fb_iframe_widget iframe {\n\twidth: 100%;\n\theight: 100%;\n\t/* opacity: 0; */\n}\n.fb_iframe_widget {\n\t/* background-image: url(another-button.png); */\n\tbackground-repeat: no-repeat;\n}\n";
+}var css_248z = "\n.fb_iframe_widget iframe {\n\twidth: 100%;\n\theight: 100%;\n  /* opacity: 0; */\n}\n.fb_iframe_widget {\n  /* background-image: url(another-button.png); */\n  background-repeat: no-repeat;\n}\n";
 styleInject(css_248z);script.render = render;/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,GoogleLogin: script$3,KakaoLogin: script$2,NaverLogin: script$1,FacebookLogin: script});var install = function installVueSocialLogin(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
