@@ -471,7 +471,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "\n.fb_iframe_widget iframe {\n\twidth: 100%;\n\theight: 100%;\n  /* opacity: 0; */\n}\n.fb_iframe_widget {\n  background-image: url(another-button.png);\n  background-repeat: no-repeat;\n}\n";
+var css_248z = "\n.fb_iframe_widget iframe {\n\twidth: 100%;\n\theight: 100%;\n\t/* opacity: 0; */\n}\n.fb_iframe_widget {\n\t/* background-image: url(another-button.png); */\n\tbackground-repeat: no-repeat;\n}\n";
 styleInject(css_248z);
 
 script.render = render;

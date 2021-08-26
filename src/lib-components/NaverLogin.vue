@@ -29,11 +29,11 @@ export default {
 		this.naverService.initNaver(this.clientId, this.callbackUrl);
 	},
 	methods: {
-    onClickNaver() {
-      const naverLogin = document.getElementById("naverIdLogin").firstChild;
-			return naverLogin.click();
-    }
-  }
+		onClickNaver() {
+			const naverLogin = document.getElementById("naverIdLogin").firstChild;
+				return naverLogin.click();
+		}
+	}
 }
 
 </script>

@@ -431,7 +431,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z = "\n.fb_iframe_widget iframe {\n\twidth: 100%;\n\theight: 100%;\n  /* opacity: 0; */\n}\n.fb_iframe_widget {\n  background-image: url(another-button.png);\n  background-repeat: no-repeat;\n}\n";
+}var css_248z = "\n.fb_iframe_widget iframe {\n\twidth: 100%;\n\theight: 100%;\n\t/* opacity: 0; */\n}\n.fb_iframe_widget {\n\t/* background-image: url(another-button.png); */\n\tbackground-repeat: no-repeat;\n}\n";
 styleInject(css_248z);script.render = render;/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,GoogleLogin: script$3,KakaoLogin: script$2,NaverLogin: script$1,FacebookLogin: script});var install = function installVueSocialLogin(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),

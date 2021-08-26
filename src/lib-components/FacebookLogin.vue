@@ -1,7 +1,15 @@
 <template>
-  <div class="facebook-login" @click="loginWithFacebook">
-		<div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-  </div>
+	<div class="facebook-login" @click="loginWithFacebook">
+		<div
+			class="fb-login-button"
+			data-width
+			data-size="medium"
+			data-button-type="login_with"
+			data-layout="default"
+			data-auto-logout-link="false"
+			data-use-continue-as="false"
+		></div>
+	</div>
 </template>
 
 <script>
@@ -16,7 +24,7 @@ export default {
 		},
 	},
 	data() {
-		return { 
+		return {
 			loadInitFacebook: facebookService.loadInitFacebook,
 			loginWithFacebook: facebookService.loginWithFacebook,
 		}
@@ -31,11 +39,11 @@ export default {
 .fb_iframe_widget iframe {
 	width: 100%;
 	height: 100%;
-  /* opacity: 0; */
+	/* opacity: 0; */
 }
 
 .fb_iframe_widget {
-  background-image: url(another-button.png);
-  background-repeat: no-repeat; 
+	/* background-image: url(another-button.png); */
+	background-repeat: no-repeat;
 }
 </style>

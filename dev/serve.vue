@@ -1,19 +1,21 @@
 <script>
 import { defineComponent } from 'vue';
-// Uncomment import and local "components" registration if library is not registered globally.
-// import { VueSocialLoginSample } from '@/entry.esm';
+import GoogleLogin from '../src/lib-components/GoogleLogin.vue';
+import KakaoLogin from '../src/lib-components/KakaoLogin.vue';
+
 
 export default defineComponent({
-  name: 'ServeDev',
-  // components: {
-  //  VueSocialLoginSample,
-  // }
+	name: 'ServeDev',
+	components: {
+		GoogleLogin,
+		KakaoLogin
+	}
 });
 </script>
 
 <template>
-  <div id="app">
-    <GoogleLogin />
-    <KakaoLogin />
-  </div>
+	<div id="app">
+		<GoogleLogin />
+		<KakaoLogin />
+	</div>
 </template>
