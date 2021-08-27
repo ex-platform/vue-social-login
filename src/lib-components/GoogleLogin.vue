@@ -1,7 +1,5 @@
 <template>
-	<button :id="googleLoginButtonId">
-		<img src="../assets/img_googleLogin.png" alt="구글 로그인" />
-	</button>
+	<div class="google-login" :id="googleLoginButtonId" />
 </template>
 <script>
 import { GoogleService } from "social-login-service";
@@ -39,3 +37,10 @@ export default {
 	},
 }
 </script>
+
+<style>
+.google-login {
+	width: 100%;
+	height: 100%;
+}
+</style>

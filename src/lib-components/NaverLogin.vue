@@ -1,8 +1,5 @@
 <template>
-  <div class="naver-login" @click="onClickNaver">
-    <div id="naverIdLogin" />
-    <!-- <div id="naverIdLogin" style="visibility: hidden"/> -->
-  </div>
+	<div id="naverIdLogin" style="visibility: hidden;" />
 </template>
 
 <script>
@@ -64,12 +61,5 @@ export default {
 			this.buttonStyles,
 		);
 	},
-	methods: {
-		onClickNaver() {
-			const naverLogin = document.getElementById("naverIdLogin").firstChild;
-				return naverLogin.click();
-		}
-	}
 }
-
 </script>

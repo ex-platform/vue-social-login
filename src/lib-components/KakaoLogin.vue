@@ -1,7 +1,5 @@
 <template>
-	<button @click="kakaoService.login()">
-		<img src="../assets/img_kakaoLogin.png" alt="카카오 로그인" />
-	</button>
+	<div class="kakao-login" @click="kakaoService.login()" />
 </template>
 <script>
 import { KakaoService } from "social-login-service";
@@ -36,3 +34,13 @@ export default {
 	}
 }
 </script>
+
+<style>
+.kakao-login {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
